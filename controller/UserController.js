@@ -10,7 +10,7 @@ router.get('/activate/:id', (req, res) => {
       data.allowAccess = true;
       data.save();
     }
-    res.redirect('http://localhost:3000/login');
+    res.redirect(`${process.env.CLIENT_DOMAIN}/login`);
   });
 });
 

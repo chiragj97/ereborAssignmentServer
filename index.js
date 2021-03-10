@@ -85,11 +85,11 @@ app.get(
 app.get(
   '/auth/google/redirect',
   passport.authenticate('google', {
-    failureRedirect: 'http://localhost:3000/login',
+    failureRedirect: `${process.env.CLIENT_DOMAIN}/login`,
   }),
   function (req, res) {
     console.log(req);
-    res.redirect('http://localhost:3000/profile');
+    res.redirect(`${process.env.CLIENT_DOMAIN}/profile`);
   }
 );
 
@@ -98,10 +98,10 @@ app.get('/auth/facebook/login', passport.authenticate('facebook'));
 app.get(
   '/auth/facebook/redirect',
   passport.authenticate('facebook', {
-    failureRedirect: 'http://localhost:3000/login',
+    failureRedirect: `${process.env.CLIENT_DOMAIN}/login`,
   }),
   function (req, res) {
-    res.redirect('http://localhost:3000/profile');
+    res.redirect(`${process.env.CLIENT_DOMAIN}/profile`);
   }
 );
 
